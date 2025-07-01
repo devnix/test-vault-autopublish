@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+
+# Personal workspace and instance-specific preferences
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/hotkeys.json
+.obsidian/graph.json
+.obsidian/app.json
+.obsidian/appearance.json
+
+# Cache and temporary files
+.obsidian/cache/
+.obsidian/.DS_Store
+.trash/
+
+# Specific plugins that shouldn't be synced
+.obsidian/plugins/hot-reload/

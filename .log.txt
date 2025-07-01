@@ -1,0 +1,38 @@
+[24:0701/115044.968360:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+2025-07-01 11:50:45 Loading main app package /opt/Obsidian/resources/obsidian.asar
+[24:0701/115045.227730:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+[24:0701/115045.227773:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+[24:0701/115045.229188:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24:0701/115045.229209:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24:0701/115045.229217:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24:0701/115045.229225:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+
+DevTools listening on ws://127.0.0.1:45191/devtools/browser/c2dc59bd-0967-4a64-a594-52363670df81
+Ignored: Error: ENOENT: no such file or directory, open '/root/.config/obsidian/94349b4f2b2e057a.json'
+[24:0701/115045.249472:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+2025-07-01 11:50:45 Checking for update using Github
+2025-07-01 11:50:45 Success.
+2025-07-01 11:50:45 Latest version is 1.8.10
+2025-07-01 11:50:45 Downloading update from https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/obsidian-1.8.10.asar.gz
+[24:0701/115045.637680:ERROR:bus.cc(407)] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[__init__.py -               inject() ][    INFO] injecting /inject-enable.js into 4E2AEF1F929B08F312758E1AFEC9338E
+obsidian --remote-allow-origins=* --no-sandbox --no-xshm --disable-dev-shm-usage --disable-gpu --disable-software-rasterizer --remote-debugging-port=37941 --remote-debugging-port=45191
+01/07/2025 11:50:46 x11vnc version: 0.9.16 lastmod: 2019-01-05  pid: 168
+01/07/2025 11:50:46 
+01/07/2025 11:50:46 wait_for_client: WAIT:cmd=FINDCREATEDISPLAY-Xvfb
+01/07/2025 11:50:46 
+01/07/2025 11:50:46 initialize_screen: fb_depth/fb_bpp/fb_Bpl 24/32/2560
+01/07/2025 11:50:46 
+01/07/2025 11:50:46 Autoprobing TCP port 
+01/07/2025 11:50:46 Autoprobing selected TCP port 5900
+01/07/2025 11:50:46 Autoprobing TCP6 port 
+01/07/2025 11:50:46 Autoprobing selected TCP6 port 5900
+01/07/2025 11:50:46 listen6: bind: Address already in use
+01/07/2025 11:50:46 Not listening on IPv6 interface.
+01/07/2025 11:50:46 
+
+The VNC desktop is:      9fdbfc57a701:0
+PORT=5900
+2025-07-01 11:50:47 Verifying hash & signature. Size= 8128788
+2025-07-01 11:50:47 Saving file
+2025-07-01 11:50:47 Update complete.
