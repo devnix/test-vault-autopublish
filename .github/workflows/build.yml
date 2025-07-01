@@ -1,0 +1,47 @@
+name: Build Webpage
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build page
+        run: |
+          mkdir -p ./.output
+          echo "Starting Obsidian export..."
+
+          docker run --rm -v .:/vault -v ./.output:/output KosmosisDire/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt
+
+          echo "Docker command completed. Checking results..."
+          cat ./.log.txt
+
+          # Check if output directory has content
+          if [ "$(ls -A ./.output 2>/dev/null)" ]; then
+            echo "✅ Build successful - output directory contains files:"
+            ls -la ./.output
+          else
+            echo "❌ Build failed - output directory is empty or missing"
+            echo "Docker container logs:"
+            cat ./.log.txt
+            exit 1
+          fi
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./.output
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
