@@ -21,7 +21,7 @@ jobs:
           mkdir -p ./.output
           echo "Starting Obsidian export..."
 
-          docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output spartacus04/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt; then
+          docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output spartacus04/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt
           echo "Docker command completed. Checking results..."
           cat ./.log.txt
 
