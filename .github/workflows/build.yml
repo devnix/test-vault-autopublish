@@ -21,21 +21,8 @@ jobs:
           mkdir -p ./.output
           echo "Starting Obsidian export..."
 
-          # Try multiple working Docker images for Obsidian export
-          if docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output jackyzha0/quartz:latest 2>&1 | tee ./.log.txt; then
-            echo "✅ Using Quartz for export"
-          elif docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output spartacus04/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt; then
-            echo "✅ Using spartacus04 export"
-          else
-            echo "❌ All Docker images failed, trying simple copy..."
-            # Fallback: simple static site generation
-            cp -r . ./.output/
-            # Remove git and other unnecessary files
-            rm -rf ./.output/.git ./.output/.github ./.output/.obsidian
-            echo "Simple copy completed"
-          fi
-
-          echo "Checking results..."
+          docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output spartacus04/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt; then
+          echo "Docker command completed. Checking results..."
           cat ./.log.txt
 
           # Check if output directory has content
@@ -43,7 +30,9 @@ jobs:
             echo "✅ Build successful - output directory contains files:"
             ls -la ./.output
           else
-            echo "❌ Build failed - output directory is empty"
+            echo "❌ Build failed - output directory is empty or missing"
+            echo "Docker container logs:"
+            cat ./.log.txt
             exit 1
           fi
 
