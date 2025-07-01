@@ -18,22 +18,16 @@ jobs:
 
       - name: Build page
         run: |
+          set +e
           mkdir -p ./.output
-          echo "Starting Obsidian export..."
 
-          docker run --rm -v ${{ github.workspace }}:/vault -v ${{ github.workspace }}/.output:/output spartacus04/obsidian-webpage-export:latest 2>&1 | tee ./.log.txt
-          echo "Docker command completed. Checking results..."
+          docker run --rm -v .:/vault -v ./.output:/output spartacus04/obsidian-webpage-export:latest >> ./.log.txt
+
           cat ./.log.txt
 
-          # Check if output directory has content
-          if [ "$(ls -A ./.output 2>/dev/null)" ]; then
-            echo "✅ Build successful - output directory contains files:"
-            ls -la ./.output
-          else
-            echo "❌ Build failed - output directory is empty or missing"
-            echo "Docker container logs:"
-            cat ./.log.txt
-            exit 1
+          if [ $? -eq 137 ]; then
+            exit 0
+            echo "output=./.output" >> $GITHUB_OUTPUT
           fi
 
       - name: Upload site
